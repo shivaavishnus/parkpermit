@@ -89,7 +89,10 @@ parkpermit/
 └── docs/
     ├── BRIEF.md  PRD.md  ARCHITECTURE.md  APP_FLOW.md
     ├── CICD.md  PROJECT_STRUCTURE.md  SKILLS.md
+    └── backlog/                  # feature, epic, story, and task folders
 ```
+
+Browse the [ParkPermit backlog](backlog/README.md) for the PRD stories and their implementation and verification tasks.
 
 ## Conventions
 - `server/src/engine/**` must not import from `models`, `services`, `express` or `fs`. An ESLint `no-restricted-imports` rule enforces this.
