@@ -36,7 +36,7 @@ Two-week MVP for campus parking permit allocation. One user: the parking admin. 
 ## Workflow
 - Branches `feat/E<n>-S<n>-<slug>`, Conventional Commits, squash-merge to `main` via PR with green checks (see docs/CICD.md).
 - Build epic by epic in PRD order. Engine (E3) has tests before UI depends on it.
-- Skills: `.claude/skills/generate-synthetic-data`, `run-allocation`, `check-uat`.
+- Skills in `.claude/skills/`: `generate-synthetic-data`, `write-tests`, `review-code`, `ui-ux`, `write-user-stories`, `run-allocation`, `check-uat` (see docs/SKILLS.md).
 
 ## Commands (once scaffolded)
 `npm run dev` · `npm test` · `npm run test:engine -w server` · `npm run uat` · `npm run gen:data` · `npm run lint` · `docker compose up -d mongo`
