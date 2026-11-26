@@ -1,0 +1,9 @@
+{
+  "files": {
+    "fixtures/uat/applications.csv": "e22b2da1741ca4f839c19975d3b2aad42ce26d5c8c0e205b66cba4523e09c671",
+    "fixtures/uat/expected.json": "c8d7efd1bd6c7cbe77b02ed6a41d3685e407d2d2bafbdeeb2ecf4be4aca173ea",
+    "fixtures/uat/lots.csv": "3c38555dc1f136dbd6a21d8408dfd4dda0f3105fc5d03eefd60104aa53178e63",
+    "samples/term-seed42/applications.csv": "fa2947c4af17aa23a57a249333f55652ffe9a6a1d8b0864016e30d12d716c532",
+    "samples/term-seed42/lots.csv": "3c38555dc1f136dbd6a21d8408dfd4dda0f3105fc5d03eefd60104aa53178e63"
+  }
+}

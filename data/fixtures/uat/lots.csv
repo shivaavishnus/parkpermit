@@ -1,0 +1,6 @@
+lot_id,name,block,car_total,car_accessible,car_visitor,car_reserved,bike_total,bike_accessible,bike_visitor,bike_reserved,dist_A,dist_B,dist_C,dist_D,dist_E,past_peak_count
+LOT-A,Library Lot,A,25,2,5,5,25,2,5,0,80,330,580,880,1180,31
+LOT-B,Science Lot,B,25,2,5,5,25,2,5,0,330,80,330,630,930,19
+LOT-C,Arts Lot,C,25,2,5,5,25,2,5,0,580,330,80,380,680,16
+LOT-D,Sports Lot,D,25,2,5,5,25,2,5,0,880,630,380,80,380,12
+LOT-E,East Lot,E,25,2,5,5,25,2,5,0,1180,930,680,380,80,9

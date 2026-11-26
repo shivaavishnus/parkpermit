@@ -1,0 +1,99 @@
+{
+  "note": "UAT-1..7 fixture membership. Assertions live in server/test/uat/uat.test.js.",
+  "UAT-1": {
+    "lot": "LOT-E",
+    "vehicle": "car",
+    "applicants": [
+      "APP-0059",
+      "APP-0060",
+      "APP-0061",
+      "APP-0062",
+      "APP-0063",
+      "APP-0064",
+      "APP-0065",
+      "APP-0066"
+    ]
+  },
+  "UAT-2": {
+    "lot": "LOT-A",
+    "vehicle": "car",
+    "window": "early",
+    "applicants": [
+      "APP-0001",
+      "APP-0002",
+      "APP-0003",
+      "APP-0004",
+      "APP-0005",
+      "APP-0006",
+      "APP-0007",
+      "APP-0008",
+      "APP-0009",
+      "APP-0010",
+      "APP-0011",
+      "APP-0012",
+      "APP-0013",
+      "APP-0014",
+      "APP-0015",
+      "APP-0016",
+      "APP-0017",
+      "APP-0018",
+      "APP-0019",
+      "APP-0020",
+      "APP-0021",
+      "APP-0022",
+      "APP-0023",
+      "APP-0024",
+      "APP-0025",
+      "APP-0026",
+      "APP-0027",
+      "APP-0028",
+      "APP-0029",
+      "APP-0030",
+      "APP-0031",
+      "APP-0032"
+    ]
+  },
+  "UAT-3": {
+    "lot": "LOT-A",
+    "vehicle": "car",
+    "applicants": [
+      "APP-0021",
+      "APP-0022",
+      "APP-0023",
+      "APP-0024",
+      "APP-0025",
+      "APP-0026"
+    ]
+  },
+  "UAT-4": {
+    "lot": "LOT-A",
+    "applicants": [
+      "APP-0035",
+      "APP-0036",
+      "APP-0037",
+      "APP-0087"
+    ]
+  },
+  "UAT-5": {
+    "applicants": [
+      "APP-0017",
+      "APP-0018",
+      "APP-0019",
+      "APP-0020"
+    ]
+  },
+  "UAT-6": {
+    "applicants": [
+      "APP-0033",
+      "APP-0034"
+    ]
+  },
+  "UAT-7": {
+    "lot": "LOT-A",
+    "applicants": [
+      "APP-0030",
+      "APP-0031",
+      "APP-0032"
+    ]
+  }
+}
