@@ -17,11 +17,16 @@ parkpermit/
 ├── .claude/
 │   └── skills/
 │       ├── generate-synthetic-data/SKILL.md
+│       ├── write-tests/SKILL.md
+│       ├── review-code/SKILL.md
+│       ├── ui-ux/SKILL.md
+│       ├── write-user-stories/SKILL.md
 │       ├── run-allocation/SKILL.md
 │       └── check-uat/SKILL.md
 ├── scripts/
 │   ├── deploy.sh  smoke.sh
-│   └── check-data-manifest.js    # real-data guard
+│   ├── check-data-manifest.js    # real-data guard (npm run check:data)
+│   └── uat-coverage.js           # UAT coverage + oversubscription report
 │
 ├── client/                       # React + Vite
 │   ├── index.html  vite.config.js  package.json

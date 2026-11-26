@@ -16,22 +16,23 @@
 Roles for the sprint: **Product owner** (parking admin proxy, signs off UAT), **Tech lead** (engine and architecture), **Full-stack dev ×2** (API and UI), **QA** (part-time; UAT scripts, can be the tech lead).
 
 ## 2. Claude Code skills (`.claude/skills/`)
-These are created in Step 2. Each is a folder with a `SKILL.md` (YAML frontmatter `name`, `description`, then instructions).
+Each skill is a folder with a `SKILL.md` (YAML frontmatter `name` and `description`, then instructions). Claude Code loads a skill when its description matches the task; you can also call one by name, e.g. `/check-uat`.
 
-### `generate-synthetic-data`
-- **When:** a new or changed synthetic dataset is needed, or UAT fixtures need updating.
-- **Does:** runs `npm run gen:data -- --seed <n> --size <n> --out data/samples/<name>`; regenerates `data/fixtures/uat` from `scenarios.js`; updates `MANIFEST.json`; prints a coverage table showing which UAT case each fixture row exercises, and checks that at least one lot is oversubscribed.
-- **Guardrails:** synthetic names only (generated from fixed word lists); never read or copy files outside `data/`; refuse to import a user-supplied "real" CSV.
+| Skill | Use it when | Main guardrail |
+|---|---|---|
+| [`generate-synthetic-data`](../.claude/skills/generate-synthetic-data/SKILL.md) | A new sample, a fixture edge case or a coverage check is needed | Synthetic only; refuses real CSVs; asks before `expected.json` changes |
+| [`write-tests`](../.claude/skills/write-tests/SKILL.md) | Adding engine, ingest, UAT, API or client tests | Tests named after rules; engine coverage ≥ 90%; never edit `expected.json` |
+| [`review-code`](../.claude/skills/review-code/SKILL.md) | Before opening or merging a PR | Blocks on any breach of the CLAUDE.md non-negotiables (R1–R10) |
+| [`ui-ux`](../.claude/skills/ui-ux/SKILL.md) | Designing, building or auditing a screen, or writing UI copy | WCAG 2.1 AA; occupancy never by colour alone; no override UI for accessible bays |
+| [`write-user-stories`](../.claude/skills/write-user-stories/SKILL.md) | Adding or refining backlog items in PRD.md | In scope, INVEST, Fibonacci SP, mapped to UAT and BR rules |
+| [`run-allocation`](../.claude/skills/run-allocation/SKILL.md) | Inspecting engine output, explaining a placement, diffing a change | Read-only; never writes to MongoDB or `data/` |
+| [`check-uat`](../.claude/skills/check-uat/SKILL.md) | Before a PR touching the engine, ingest or data; "are we UAT-ready?" | Never weakens assertions or edits `expected.json` to pass |
 
-### `run-allocation`
-- **When:** checking engine output after a change, or explaining a placement.
-- **Does:** runs the engine CLI (`node server/src/engine/cli.js --apps <csv> --lots <csv> [--explain APP-0007]`) with no DB; prints per-lot, per-shift occupancy, accessibility status, KPIs and the decision list; `--diff <previous.json>` shows which placements changed.
-- **Guardrails:** read-only; never writes to MongoDB.
+`review-code` is named so that it does not shadow Claude Code's built-in `/code-review`. Use both: the built-in one hunts generic bugs, and this one checks ParkPermit's rules.
 
-### `check-uat`
-- **When:** before opening a PR that touches the engine or ingest, or when asked "are we UAT-ready?".
-- **Does:** runs `npm run uat`, maps results to UAT-1..7 in a pass/fail table with evidence (lot, applicant ids, occupancy), checks invariants (accessible ≤ capacity, only holders in accessible bays, no inactive placed, every outcome has a reason), and drafts the UAT section for the PR description.
-- **Guardrails:** does not edit `expected.json` to make tests pass. If expectations should change, it stops and asks.
+### Helper scripts used by the skills
+- `scripts/check-data-manifest.js` (`npm run check:data`): real-data guard that fails on any file in `data/` that is not in `MANIFEST.json`, or whose hash no longer matches.
+- `scripts/uat-coverage.js`: UAT-1..7 row counts, data-issue counts, and first-choice demand vs general capacity per window. Fails if a case is empty or no lot is oversubscribed.
 
 ### Optional, later
 - `new-story` scaffolds a branch, test stub and PR template from a story ID in PRD.md.
